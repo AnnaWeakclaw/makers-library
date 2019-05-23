@@ -9,4 +9,9 @@ class MemberList
   def add(id, name)
     members.push(@member_class.new(id, name))
   end
+
+  def members_by(id)
+    members = @members.select { |member| member.id_number == id }
+    member = members.first
+  end
 end
