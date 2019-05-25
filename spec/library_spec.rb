@@ -35,5 +35,10 @@ describe Library do
       expect(catalogue).to receive(:add)
       library.add_book("Book", "Makers", 1)
     end
+
+    it "shows book details" do
+      expect(catalogue).to receive(:show)
+      library.show_details(1)
+    end
   end
 end

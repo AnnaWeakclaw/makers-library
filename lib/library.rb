@@ -25,4 +25,8 @@ class Library
   def add_book(title, author, id)
     @catalogue.add(title, author, id)
   end
+
+  def show_details(id)
+    @catalogue.show(id)
+  end
 end
