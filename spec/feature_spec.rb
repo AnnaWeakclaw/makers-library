@@ -6,6 +6,8 @@ describe 'Feature members of the library' do
 
 subject { Library.new }
 let(:member) { Member.new("1", "First") }
+let(:book) { Book.new("Book", "Makers", 1)}
+let(:cat) { Catalogue.new }
 
   it 'shows me members' do
     subject.add_member("123", "Hero")
@@ -16,9 +18,15 @@ let(:member) { Member.new("1", "First") }
   it "lends a book and returns it" do 
     subject.add_member("123", "Hero")
     subject.add_member("456", "Monkey")
-    subject.lend("Book", "123")
+    subject.lend(book, "123")
     expect(subject.show_members("123")).to be_kind_of(Member)
-    subject.return("Book", "123")
+    subject.return(book, "123")
     expect(subject.show_members("123")).to be_kind_of(Member)
+  end
+
+  it "has a book in catalog" do
+    cat.add(book)
+    expect(cat.show(1)).to eq([book])
+
   end
 end
