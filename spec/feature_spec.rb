@@ -25,8 +25,8 @@ let(:cat) { Catalogue.new }
   end
 
   it "has a book in catalog" do
-    cat.add(book)
-    expect(cat.show(1)).to eq([book])
+    cat.add("Book", "Author", 2)
+    expect(cat.show(2)).to include(be_a_kind_of(Book))
 
   end
 end

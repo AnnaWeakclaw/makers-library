@@ -1,9 +1,11 @@
 class Catalogue
-  def initialize
+  def initialize(book = Book)
     @cat = []
+    @book = book
   end
-  def add(book)
-    @cat.push(book)
+  def add(title, author, id)
+    @book = @book.new(title, author, id)
+    @cat.push(@book)
   end
   def show(id)
     @cat.select { |book|

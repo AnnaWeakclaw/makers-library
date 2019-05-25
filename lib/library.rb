@@ -1,8 +1,9 @@
 class Library
   attr_reader :member_list
 
-  def initialize(member_list_class = MemberList)
+  def initialize(member_list_class = MemberList, catalogue_class = Catalogue)
     @member_list = member_list_class.new
+    @catalogue = catalogue_class.new
   end
 
   def add_member(id, name)
@@ -19,5 +20,9 @@ class Library
 
   def return(book, id)
     show_members(id).return_item(book)
+  end
+
+  def add_book(title, author, id)
+    @catalogue.add(title, author, id)
   end
 end
